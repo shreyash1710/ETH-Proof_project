@@ -52,7 +52,7 @@ Once the contract is deployed, you can interact with it by calling the mint and 
 
 ## Authors
 
-Omkar Kawadghare
+Shreyash Donadkar
 
 
 ## License
