@@ -16,30 +16,29 @@ Once you are on the Remix website, create a new file by clicking on the "+" icon
 
     // SPDX-License-Identifier: MIT
     pragma solidity ^0.8.18;
-    
+
     contract My_Token {
-        string public name = "OMKAR";
-        string public symbol = "OK";
-        uint8 public decimals = 8;
-        uint256 public totalSupply = 0; // Total supply with 18 decimal places
+    // token details
+    string public TokenName = "SHREYASH"; 
+    string public TekonID = "SHY"; 
+    uint public totalSupply = 0;
     
-        mapping(address => uint256) public balanceOf;
-
-    event Mint(address indexed to, uint256 value);
-    event Burn(address indexed from, address indexed to, uint256 value); // Added 'to' address attribute
+    // mapping variable here
+    mapping(address => uint) public balance;
     
-    function mint(address to, uint256 value) public {
-        totalSupply += value;
-        balanceOf[to] += value;
+    // minting token function
+    function mint (address _address, uint _value) public {
+        totalSupply += _value; 
+        balance[_address] += _value;
     }
-
-    function burn(address from, uint256 value) public  {
-        require(balanceOf[from] >= value, "Insufficient balance for burning");
-        
-        balanceOf[from] -= value;
-        totalSupply -= value;
-        emit Burn(from, address(0), value); // Burning tokens by sending them to address(0)
+    
+    // burning token function
+    function burn (address _address, uint _value) public {
+        if (balance[_address] > _value){
+            totalSupply -= _value;
+            balance[_address] -= _value;
         }
+    }
     }
     
         
